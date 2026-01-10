@@ -1,0 +1,9 @@
+# node modules
+node_modules
+# build output
+dist/**
+# all env profiles except the development one
+env/*
+!env/.env.development
+# database files
+data/**

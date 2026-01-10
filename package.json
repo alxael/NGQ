@@ -1,0 +1,37 @@
+{
+  "name": "banking-app",
+  "version": "0.0.1",
+  "description": "banking application",
+  "homepage": "https://github.com/alxael/NGQ#readme",
+  "bugs": {
+    "url": "https://github.com/alxael/NGQ/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxael/NGQ.git"
+  },
+  "license": "ISC",
+  "author": "alxael",
+  "type": "module",
+  "scripts": {
+    "dev.start": "NODE_ENV=development npx nodemon ./src/app.js",
+    "dev.db.create": "NODE_ENV=development npx sequelize-cli db:create",
+    "dev.db.migrate": "NODE_ENV=development npx sequelize-cli db:migrate",
+    "prod.start": "NODE_ENV=production ./src/app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "graphql": "^16.12.0",
+    "graphql-http": "^1.22.4",
+    "jest": "^30.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "sequelize-cli": "^6.6.5"
+  }
+}
