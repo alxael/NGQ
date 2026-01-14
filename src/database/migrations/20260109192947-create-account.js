@@ -9,11 +9,7 @@ export default {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -28,6 +24,11 @@ export default {
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+      },
+      closed: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,

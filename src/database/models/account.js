@@ -11,11 +11,7 @@ const initializeAccount = (sequelize, DataTypes) => {
 
   Account.init(
     {
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -31,6 +27,11 @@ const initializeAccount = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      closed: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     },
     {
       sequelize,
@@ -40,6 +41,5 @@ const initializeAccount = (sequelize, DataTypes) => {
   );
 
   return Account;
-  ƒ;
 };
 export default initializeAccount;

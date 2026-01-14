@@ -4,9 +4,11 @@ const initializeTransaction = (sequelize, DataTypes) => {
   class Transaction extends Model {
     static associate(models) {
       Transaction.belongsTo(models.Account, {
+        as: "inboundAccount",
         foreignKey: "inboundAccountId",
       });
       Transaction.belongsTo(models.Account, {
+        as: "outboundAccount",
         foreignKey: "outboundAccountId",
       });
     }
