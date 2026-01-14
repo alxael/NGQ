@@ -15,8 +15,9 @@
   "type": "module",
   "scripts": {
     "dev.start": "NODE_ENV=development npx nodemon ./src/app.js",
-    "dev.db.create": "NODE_ENV=development npx sequelize-cli db:create",
     "dev.db.migrate": "NODE_ENV=development npx sequelize-cli db:migrate",
+    "dev.db.seed": "NODE_ENV=development npx sequelize-cli db:seed:all",
+    "dev.db.start": "NODE_ENV=development rimraf ./data/dev_database.sqlite && npm run dev.db.migrate && npm run dev.db.seed",
     "prod.start": "NODE_ENV=production ./src/app.js"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.11",
+    "rimraf": "^6.1.2",
     "sequelize-cli": "^6.6.5"
   }
 }

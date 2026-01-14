@@ -1,5 +1,11 @@
-import { GraphQLInt, GraphQLObjectType, GraphQLString } from "graphql";
-import countryType from "./countryType.js";
+import {
+  GraphQLInt,
+  GraphQLList,
+  GraphQLObjectType,
+  GraphQLString,
+} from "graphql";
+import countryType from "../country/countryType.js";
+import roleType from "../role/roleType.js";
 
 const userType = new GraphQLObjectType({
   name: "User",
@@ -13,6 +19,13 @@ const userType = new GraphQLObjectType({
       resolve: async (user) => {
         const country = await user.getCountry();
         return country;
+      },
+    },
+    roles: {
+      type: new GraphQLList(roleType),
+      resolve: async (user) => {
+        const roles = await user.getRoles();
+        return roles;
       },
     },
   },

@@ -13,7 +13,8 @@ const jwtMiddleware = (req, res, next) => {
     req.userId = decodedPayload.userId;
     next();
   } catch (error) {
-    console.info("Invalid JWT token: ", error);
+    console.info("Invalid JWT token: ", error.message);
+    req.userId = null;
     next();
   }
 };

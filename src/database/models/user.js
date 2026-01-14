@@ -7,6 +7,9 @@ const initializeUser = (sequelize, DataTypes) => {
         foreignKey: "countryId",
       });
       User.hasMany(models.Account);
+      User.belongsToMany(models.Role, {
+        through: "UserRoles"
+      });
     }
   }
 

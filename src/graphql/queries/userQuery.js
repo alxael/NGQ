@@ -1,5 +1,5 @@
 import { GraphQLInt } from "graphql";
-import userType from "../types/userType.js";
+import userType from "../types/user/userType.js";
 import database from "../../database/database.js";
 
 const userQueryResolver = async (_, { id }) => {

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+import { createHandler } from "graphql-http/lib/use/express";
 import middlewares from "./middlewares/middlewares.js";
-import { createHandler } from "graphql-http";
 import schema from "./graphql/schema.js";
 
 dotenv.config({
@@ -11,10 +11,7 @@ dotenv.config({
 const PORT = process.env.SERVER_PORT;
 
 const app = express();
-
-app.get((req, res) => {
-    res.send("ok");
-})
+app.use(express.json());
 
 app.all(
   "/graphql",
@@ -23,12 +20,12 @@ app.all(
     schema,
     context: (req) => {
       return {
-        userId: req.raw.userId || null,
+        userId: req.raw.userId,
       };
     },
   })
 );
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}!`);
+  console.log(`GraphQL server is running on http://localhost:${PORT}/graphql`);
 });
